@@ -40,10 +40,10 @@ function setupRegistryForEachAddon(registry, parent) {
 */
 module.exports.setupRegistry = function(appOrAddon) {
   var registry = appOrAddon.registry;
+  setupRegistryForEachAddon(registry, appOrAddon);
   if (appOrAddon.setupPreprocessorRegistry) {
     appOrAddon.setupPreprocessorRegistry('self', registry);
   }
-  setupRegistryForEachAddon(registry, appOrAddon);
 
   addLegacyPreprocessors(registry);
 };
